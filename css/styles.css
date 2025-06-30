@@ -10,6 +10,7 @@ html,
 body, 
  #container {
   min-width: 100vw;
+ 
 }
 
 #container {
@@ -20,10 +21,14 @@ body,
   margin: 10px;
   padding: 20px;
   justify-content: center;
+  background-image:url("/images/Star-wars-logo-new-tall.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 }
 
 #titulo-tabela {
-  width: 100%;
+  width: 80%;
   height: 100%;
   text-align: center;
   position: relative;
@@ -41,11 +46,27 @@ table {
   border-collapse: collapse;
   border-top: 1px solid #999;
   border-bottom: 1px solid #999;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
 }
 
-th,
-td {
+#column-name,
+th {
   vertical-align: top;
   padding: 0.3em;
+  text-align: left;
+  align-content: flex-start;
+  border-bottom: 1px solid #999;
+  border-right: 1px solid #999;
+  color: aliceblue;
+}
+
+td {
+  padding: 0.3em;
+  text-align: left;
+  align-content: flex-start;
+  border-bottom: 1px solid #999;
+  border-right: 1px solid #999;
+  color: aliceblue;
 }
 
