@@ -1,30 +1,38 @@
-async function buscaApi(){
+async function buscaApi() {
+
+    const response = await fetch("https://swapi.info/api/people");
+    const data = await response.json();
     const tabela = document.getElementById("tabela-linhas");
-    try{
-        const response = await fetch("https://swapi.info/api/people");
-        const data = await response.json();
-        
-        data.forEach((item) => {
-          const row = tabela.insertRow();
-
-          const name = row.insertCell();
-          name.textContent = item.name;
-
-          const birthYear = row.insertCell();
-          birthYear.textContent = item.birth_year;
-
-          const gender = row.insertCell();
-          gender.textContent = item.gender;
-
-          const hairColor = row.insertCell();
-          hairColor.textContent = item.hair_color;
-
-          const eyeColor = row.insertCell();
-          eyeColor.textContent = item.eye_color;
     
-        });
-    } catch(erro) {
-        console.error("Erro ao retornar dados da API", erro);
-    }
+    data.forEach((item) => {
+        const tr= document.createElement("tr");
+
+        const td1 = document.createElement("td");
+        const name = item.name;
+        td1.innerHTML = name;
+        tr.appendChild(td1);
+       
+        const td2 = document.createElement("td");
+        const birthYear = item.birth_year;
+        td2.innerHTML = birthYear;
+        tr.appendChild(td2); 
+
+        const td3 = document.createElement("td");
+        const gender = item.gender;
+        td3.innerHTML = gender;
+        tr.appendChild(td3);
+
+        const td4 = document.createElement("td");
+        const hairColor = item.hair_color;
+        td4.innerHTML = hairColor;
+        tr.appendChild(td4);
+
+        const td5 = document.createElement("td");
+        const eyeColor = item.eye_color;
+        td5.innerHTML = eyeColor;
+        tr.appendChild(td5);
+          
+        tabela.appendChild(tr);
+    });
 }
 document.addEventListener("DOMContentLoader", buscaApi());
